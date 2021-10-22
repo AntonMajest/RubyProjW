@@ -1,0 +1,29 @@
+version: "2.0"
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/helloRuby_development:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB= 'helloRuby_development'
+      - POSTGRES_USER= 'milestep'
+      - POSTGRES_PASSWORD= 'pass'
+  backend:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3001 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
+  web:
+    build: ./client
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

@@ -1,0 +1,18 @@
+.form {
+    display: flex;
+    flex-direction: row;
+}
+.form-title {
+    text-align: center;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    margin-right: 35px;
+}
+
+.form-input_date-confirm {
+    display: flex;
+    flex-direction: column;
+}

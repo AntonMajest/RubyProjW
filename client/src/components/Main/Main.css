@@ -1,0 +1,14 @@
+.event-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+ 
+}
+
+.all-event {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
