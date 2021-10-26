@@ -6,6 +6,8 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Main from './components/Main/Main';
 import Events from './components/Events/Events';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -53,6 +55,7 @@ handleLogout = () => {
          <BrowserRouter>
           <Switch>
           {localStorage.getItem('user') ? <Main loggout={this.handleLogout}  /> : console.log('') }
+
             <Route exact path='/' component={Home}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={Signup}/>  
@@ -60,6 +63,7 @@ handleLogout = () => {
             <Route exact path='/create_event' component={Events}/>
           </Switch> 
         </BrowserRouter>
+        <ToastContainer />
       </div>
     );
   }

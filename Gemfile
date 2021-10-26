@@ -6,7 +6,7 @@ ruby '2.7.0'
 gem 'rake', '12.3.2'
 gem 'pry'
 gem 'bcrypt'
-gem 'rack-cors'
+gem 'rack-cors' 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use postgresql as the database for Active Record

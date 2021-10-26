@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +9,7 @@ class Login extends Component {
       username: '',
       email: '',
       password: '',
-      errors: ''
+      errors: {}
      };
   }
 handleChange = (event) => {
@@ -35,9 +36,10 @@ axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
         this.setState({
           errors: response.data.errors
         })
+        toast(`${this.state.errors.map(el => el)}`  ,)
       }
     })
-    .catch(error => console.log('api errors:', error))
+    
   };
 
 handleErrors = () => {

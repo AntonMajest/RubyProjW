@@ -62,9 +62,10 @@ export default class EventsEdit extends Component {
           this.setState({
             errors: response.data.errors
           })
+          toast(`${this.state.errors.map(el => el)}`  ,)
         }
       })
-        .catch(error => toast(`api errors:${error}`  ,))
+      
       };
     
       

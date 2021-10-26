@@ -10,7 +10,7 @@ class Events extends Component {
         title: '',
         desc: '',
         time: '',
-        errors: ''
+        errors: {}
      };
   }
 handleChange = (ev) => {
@@ -36,9 +36,10 @@ axios.post(`http://localhost:3001/users/${localStorage.getItem('user')}/event`, 
         this.setState({
           errors: response.data.errors
         })
+        toast(`${this.state.errors.map(el => el)}`  ,)
       }
     })
-    .catch(error => toast(`api errors:${error}`  ,))
+
   };
 
 handleErrors = () => {
